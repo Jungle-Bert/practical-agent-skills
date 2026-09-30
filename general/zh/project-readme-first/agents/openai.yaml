@@ -1,0 +1,4 @@
+interface:
+  display_name: "项目文档优先"
+  short_description: "先读项目 Markdown 导航，再定向查看源码，减少无效上下文读取"
+  default_prompt: "使用 $project-readme-first，先从项目 Markdown 获取上下文，再定向查阅其他文件。"

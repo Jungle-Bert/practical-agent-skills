@@ -1,0 +1,4 @@
+interface:
+  display_name: "用户协助操作"
+  short_description: "完成独立工作后协调用户准备资源和授权，减少高成本重复操作"
+  default_prompt: "使用 $user-assisted-operations，识别高成本步骤并协调明确的用户协助操作。"

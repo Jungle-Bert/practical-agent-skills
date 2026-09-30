@@ -1,0 +1,4 @@
+interface:
+  display_name: "User-Assisted Operations"
+  short_description: "Coordinate efficient manual actions after independent work"
+  default_prompt: "Use $user-assisted-operations to identify costly steps and coordinate efficient user assistance."

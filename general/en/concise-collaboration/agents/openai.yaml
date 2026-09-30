@@ -1,0 +1,4 @@
+interface:
+  display_name: "Concise Collaboration"
+  short_description: "Keep replies concise, focused, and free of repetition"
+  default_prompt: "Use $concise-collaboration to keep this conversation concise and action-focused."

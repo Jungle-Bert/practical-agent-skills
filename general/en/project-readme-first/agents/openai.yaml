@@ -1,0 +1,4 @@
+interface:
+  display_name: "Project Documentation First"
+  short_description: "Read project Markdown before targeted source inspection"
+  default_prompt: "Use $project-readme-first to gather context from project Markdown before inspecting other files."

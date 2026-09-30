@@ -1,0 +1,4 @@
+interface:
+  display_name: "硬件连接确认"
+  short_description: "先确认仿真器、目标板及外设连接，再进行必要的定向设备检查"
+  default_prompt: "使用 $hardware-connection-check，先确认设备连接和供电，再检查指定设备。"

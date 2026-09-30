@@ -1,0 +1,4 @@
+interface:
+  display_name: "Hardware Connection Check"
+  short_description: "Confirm device connections before targeted hardware checks"
+  default_prompt: "Use $hardware-connection-check to confirm connections and power before checking the device."

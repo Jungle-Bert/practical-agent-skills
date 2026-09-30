@@ -1,0 +1,4 @@
+interface:
+  display_name: "简洁协作"
+  short_description: "简短回复，聚焦结论、修改和验证，减少重复背景与过程说明"
+  default_prompt: "使用 $concise-collaboration，让当前对话简洁、行动明确。"
