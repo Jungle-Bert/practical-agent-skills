@@ -11,6 +11,7 @@
 | 通用 | concise-collaboration | 简洁回复，减少背景和过程重复 | [中文](general/zh/concise-collaboration/SKILL.md) | [English](general/en/concise-collaboration/SKILL.md) |
 | 通用 | project-readme-first | 先读项目 Markdown，再定向查阅源码 | [中文](general/zh/project-readme-first/SKILL.md) | [English](general/en/project-readme-first/SKILL.md) |
 | 通用 | user-assisted-operations | 协调高成本下载、文件准备和账号授权 | [中文](general/zh/user-assisted-operations/SKILL.md) | [English](general/en/user-assisted-operations/SKILL.md) |
+| 通用 | personal-pitfall-knowledge | 短索引定位旧坑，按需读取卡片，验证后自动入库 | [中文](general/zh/personal-pitfall-knowledge/SKILL.md) | [English](general/en/personal-pitfall-knowledge/SKILL.md) |
 | 硬件 | hardware-connection-check | 先确认仿真器、调试器与外设连接，再定向检查 | [中文](hardware/zh/hardware-connection-check/SKILL.md) | [English](hardware/en/hardware-connection-check/SKILL.md) |
 
 ```text
@@ -36,7 +37,9 @@ hardware/
 
 三个通用技能来自作者已有的本地技能。`hardware-connection-check` 从 `user-assisted-operations` 的本地设备协作规则拆分，并按作者要求补充“先询问连接状态，再查找设备”的顺序；通用版不再承担设备连接检查。
 
-这是技能文档仓库，不需要构建、部署或环境变量。修改时同步维护中英文版本、目录索引与界面说明；验证入口和维护约束见 [AI_readme.md](AI_readme.md)。
+知识库技能的检索工具需要 Python 3.9+ 标准库；`PITFALL_KB_ROOT` 可选指定本地数据目录，默认使用用户 Documents 下固定位置。正常查询仅返回短结果，不读取全部知识进上下文；详细预算、触发入口和用法见其 [README](general/zh/personal-pitfall-knowledge/README.md)。个人知识记录不随 skill 发布。
+
+仓库无需构建或部署。修改时同步维护中英文版本、目录索引与界面说明；验证入口和维护约束见 [AI_readme.md](AI_readme.md)。
 
 ## 许可证
 

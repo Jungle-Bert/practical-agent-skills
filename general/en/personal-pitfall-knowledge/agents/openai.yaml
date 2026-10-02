@@ -1,0 +1,6 @@
+interface:
+  display_name: "Personal Pitfall Knowledge"
+  short_description: "Search short metadata and save verified reusable fixes"
+  default_prompt: "Use $personal-pitfall-knowledge to find relevant past fixes within a small output budget."
+policy:
+  allow_implicit_invocation: true

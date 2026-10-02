@@ -1,0 +1,6 @@
+interface:
+  display_name: "个人踩坑知识库"
+  short_description: "短索引先定位旧坑，按需只读一条卡片；验证后自动沉淀可复用经验"
+  default_prompt: "Use $personal-pitfall-knowledge to find relevant past fixes within a small output budget."
+policy:
+  allow_implicit_invocation: true

@@ -11,6 +11,7 @@ Personal Codex skills that reduce repetitive communication, unnecessary searches
 | General | concise-collaboration | Keep replies brief and avoid repeating context | [中文](general/zh/concise-collaboration/SKILL.md) | [English](general/en/concise-collaboration/SKILL.md) |
 | General | project-readme-first | Read project Markdown before targeted source inspection | [中文](general/zh/project-readme-first/SKILL.md) | [English](general/en/project-readme-first/SKILL.md) |
 | General | user-assisted-operations | Coordinate costly downloads, file preparation, and account access | [中文](general/zh/user-assisted-operations/SKILL.md) | [English](general/en/user-assisted-operations/SKILL.md) |
+| General | personal-pitfall-knowledge | Search compact metadata, read selected cards, and save verified fixes | [中文](general/zh/personal-pitfall-knowledge/SKILL.md) | [English](general/en/personal-pitfall-knowledge/SKILL.md) |
 | Hardware | hardware-connection-check | Confirm debugger and peripheral connections before targeted checks | [中文](hardware/zh/hardware-connection-check/SKILL.md) | [English](hardware/en/hardware-connection-check/SKILL.md) |
 
 ```text
@@ -36,7 +37,9 @@ The English editions translate the instructions and preserve their behavior. `co
 
 The three general skills come from the author's existing local skills. `hardware-connection-check` was extracted from the local-device collaboration guidance in `user-assisted-operations`, with the author's requested ordering: ask about connections before searching for devices. The general edition no longer handles device connection checks.
 
-This repository contains skill documentation and needs no build, deployment, or environment variables. Keep both language editions, the index, and interface metadata in sync. See [AI_readme.md](AI_readme.md) for maintenance and validation guidance.
+The pitfall search tool requires Python 3.9+ standard library. Optional PITFALL_KB_ROOT selects the local database; the default is a fixed location under the user's Documents directory. Normal queries return only short results rather than all knowledge. See its [README](general/en/personal-pitfall-knowledge/README.md) for budgets, triggers, and usage. Personal entries are not published with the skill.
+
+No build or deployment is needed. Keep both language editions, the index, and interface metadata in sync. See [AI_readme.md](AI_readme.md) for maintenance and validation guidance.
 
 ## License
 
