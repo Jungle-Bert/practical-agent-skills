@@ -11,7 +11,36 @@
   archive/                旧库快照；查询不读取
 ```
 
-Skill 目录含短 `SKILL.md`、`scripts/pitfalls.py`、写入专用 references、界面 YAML 和 AI 导航。只安装一种语言到 `$CODEX_HOME/skills/personal-pitfall-knowledge`，默认 `~/.codex/skills/`。
+Skill 目录包含统一入口文档与查询、维护所需资源，可单独安装，不需要仓库中的其他技能。
+
+## 独立安装
+
+1. 获取本技能完整文件夹，先读 [AI_readme.md](AI_readme.md)、本文件和 [SKILL.md](SKILL.md)；确认 Python 3.9+ 可用，无第三方运行依赖。
+2. 复制为宿主用户级目录下的 `personal-pitfall-knowledge/`。当前 [官方文档](https://learn.chatgpt.com/docs/build-skills) 使用 `~/.agents/skills/`；已有环境使用 `~/.codex/skills/` 或 `$CODEX_HOME/skills/` 时按宿主实际配置选择，不重复安装。
+3. 只安装一种语言；同名旧版先备份到发现目录以外，再替换整个技能文件夹。个人数据库留在独立库根目录，安装或更新时不覆盖它。
+4. 检查安装文件和宿主发现结果，未发现时重启宿主。需要自动触发时按下一节合并全局规则；只有文件复制成功不代表自动触发已生效。
+
+可把以下提示词交给有本地文件工具的 Codex／GPT 助手；普通网页聊天不能直接写入电脑：
+
+```text
+请安装我已下载到 <本技能文件夹> 的 personal-pitfall-knowledge 技能。
+先读 AI_readme.md、README.md 和 SKILL.md，确认 Python 3.9+ 和宿主实际识别的用户级技能目录。
+只安装这个语言版本；同名旧版先备份到发现目录以外，再复制完整文件夹，保留 LICENSE。
+按 README 将触发规则合并到宿主实际加载的全局 AGENTS.md，保留已有规则，不覆盖整个文件。
+保留已有个人数据库；若尚未建立，只说明初始化要求，不假称已可检索，不遍历个人历史。
+核对安装文件、宿主发现结果与全局入口，报告路径、备份和未完成项。
+```
+
+## 技能文件与维护
+
+- [README.md](README.md)：人类安装、使用与维护说明。
+- [AI_readme.md](AI_readme.md)：AI 安装和维护导航；日常查询无需加载。
+- [SKILL.md](SKILL.md)：触发与执行规则。
+- [agents/openai.yaml](agents/openai.yaml)：界面文字。
+- [LICENSE](LICENSE)：MIT 许可证，独立分发时保留。
+- `scripts/`：查询与索引更新工具；`references/`：按需读取的维护规则与模板；`tests/`：脚本单元测试。
+
+不需要构建。修改时同步另一语言版本；脚本逐字一致，相对链接、界面说明和下述验证均需检查。
 
 ## 触发要求与接入
 

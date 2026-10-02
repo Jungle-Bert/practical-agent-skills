@@ -11,7 +11,36 @@ Search short metadata for a troubleshooting direction, then read one card only w
   archive/                Historical snapshots, excluded from queries
 ```
 
-The skill includes a short SKILL.md, scripts/pitfalls.py, write-only references, UI YAML, and AI navigation. Install one language into `$CODEX_HOME/skills/personal-pitfall-knowledge`, defaulting to `~/.codex/skills/`.
+The folder contains the common entry documents and the resources needed for lookup and capture. Install it alone; no other repository skill is required.
+
+## Standalone installation
+
+1. Obtain the whole folder. Read [AI_readme.md](AI_readme.md), this file, and [SKILL.md](SKILL.md); check Python 3.9+. There are no third-party runtime dependencies.
+2. Copy it as `personal-pitfall-knowledge/` under the host's user skill directory. Current [official documentation](https://learn.chatgpt.com/docs/build-skills) uses `~/.agents/skills/`; follow the actual host configuration for environments using `~/.codex/skills/` or `$CODEX_HOME/skills/`. Avoid duplicate installations.
+3. Install one language. Back up same-name installations outside discovery directories before replacing the entire skill folder. Keep the personal database in its separate root; installation and updates must not overwrite it.
+4. Check installed files and host discovery; restart the host if necessary. Follow the next section for automatic triggers. Copying files alone does not establish trigger integration.
+
+Give this prompt to a Codex/GPT assistant with local file tools; a web-only chat cannot write to your computer:
+
+```text
+Install the personal-pitfall-knowledge skill I downloaded to <this skill folder>.
+Read AI_readme.md, README.md, and SKILL.md first. Check Python 3.9+ and the user skill directory this host actually discovers.
+Install this language only. Back up same-name installations outside discovery directories, then copy the whole folder, retaining LICENSE.
+Follow the README to merge trigger rules into the global AGENTS.md the host actually loads; preserve existing rules rather than replacing the file.
+Preserve personal data. If no database exists, report the initialization requirement instead of claiming lookup is ready; do not traverse personal history.
+Check files, host discovery, and global integration. Report paths, backups, and incomplete steps.
+```
+
+## Skill files and maintenance
+
+- [README.md](README.md): human installation, use, and maintenance.
+- [AI_readme.md](AI_readme.md): AI installation and maintenance navigation; unnecessary for routine queries.
+- [SKILL.md](SKILL.md): triggers and execution rules.
+- [agents/openai.yaml](agents/openai.yaml): interface text.
+- [LICENSE](LICENSE): MIT license, retained for standalone distribution.
+- `scripts/`: lookup and metadata tools; `references/`: on-demand capture guidance and templates; `tests/`: script unit tests.
+
+No build step. Synchronize both language editions; scripts must be identical. Check relative links, interface text, and the validation described below.
 
 ## Triggers and integration
 
