@@ -56,21 +56,13 @@ hardware/
 3. 目标是 `<skills-dir>/<skill-name>/SKILL.md`，共 5 个技能；不要复制 `general`、`hardware` 或语言父目录，也不要把 10 个双语版本都装进去。
 4. `personal-pitfall-knowledge` 需要 Python 3.9+；需要自动排障检索及入库时，按其 README 接入全局规则。个人数据库保存在技能文件夹之外。
 
-**交给本地助手的提示词：**
+**简单示例：**
 
 ```text
-请从 https://github.com/Jungle-Bert/low_codex_skills 安装全部技能的中文版本。
-可以克隆或下载 ZIP；如果已有完整本地副本则复用。先读仓库 AI_readme.md 和 README.md，
-再读 general/zh/ 与 hardware/zh/ 下每个技能的 AI_readme.md、README.md 和 SKILL.md。
-确认当前宿主实际识别的用户级技能目录，只安装 concise-collaboration、project-readme-first、
-user-assisted-operations、personal-pitfall-knowledge、hardware-connection-check 这 5 个技能。
-同名旧版先备份到发现目录以外，再复制完整文件夹，保留无关技能；不安装英文版。
-检查 Python 3.9+；按踩坑知识库 README 将触发规则合并到宿主实际加载的全局 AGENTS.md，
-保留已有规则和用户数据，不覆盖整个文件；没有知识库时说明初始化要求，不假称已能检索。
-核对安装文件、宿主发现结果，报告各技能安装路径、备份位置和未完成项。
+帮我安装 <仓库文件夹路径> 中的全部中文 skills，先阅读 README.md 和 AI_readme.md。
 ```
 
-要装英文版，将提示词中的“中文／zh”替换为“英文／en”；英文简洁沟通技能仍默认中文回复，用户明确指定其他语言时遵从。已下载时把提示词第一句改成“请从我已解压到 <仓库目录> 的仓库安装全部中文技能”，无需再次下载。
+也可以直接发送完整技能压缩包，并说：“帮我安装附件中的中文 skills，按里面的 README.md 和 AI_readme.md 操作。”路径可替换为仓库链接；需要英文版时说明安装英文版。英文简洁沟通技能仍默认中文回复，用户指定其他语言时遵从。
 
 ### 方法二：只安装一个技能
 
@@ -78,17 +70,13 @@ user-assisted-operations、personal-pitfall-knowledge、hardware-connection-chec
 2. 阅读该目录的 `AI_readme.md` 和 `README.md`，将整个目录复制为 `<skills-dir>/project-readme-first/`，保留 `agents/`、`LICENSE` 以及该技能实际包含的资源。
 3. 使用 `$project-readme-first` 显式调用，或让 Codex 按任务选择。单独安装不要求其他 skill；全局规则等附加接入按所选 skill 的 README 处理。
 
-**交给本地助手的提示词：**
+**简单示例：**
 
 ```text
-请只安装 https://github.com/Jungle-Bert/low_codex_skills/tree/main/general/zh/project-readme-first
-中的 project-readme-first 中文技能。可克隆或下载，但只安装这个技能。
-先读该目录 AI_readme.md、README.md 和 SKILL.md，确认完整资源和宿主实际识别的用户级技能目录。
-同名旧版先备份到发现目录以外，再复制完整文件夹，保留 LICENSE；不安装其他技能或英文版。
-不改动无关全局规则。检查安装文件和宿主发现结果，报告路径、备份和未完成项。
+帮我安装 <单个 skill 文件夹路径> 中的 skill，先阅读 README.md 和 AI_readme.md。
 ```
 
-替换 URL、技能名和语言即可安装其他技能。只有下载好的单个技能文件夹时，直接使用其 README 内的离线安装提示词。
+也可以发送单个技能的完整文件夹或压缩包，说“帮我安装这个 skill”。AI 按该技能的入口文档完成安装与使用接入。
 
 ## 贡献与仓库权限
 

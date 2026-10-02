@@ -56,24 +56,13 @@ Read each selected skill's `AI_readme.md`, `README.md`, and `SKILL.md` first. In
 3. Each target is `<skills-dir>/<skill-name>/SKILL.md`: five skills total. Do not copy category/language parents or install all ten bilingual editions.
 4. `personal-pitfall-knowledge` needs Python 3.9+. For automatic troubleshooting lookup and capture, follow its README to integrate global rules. Store personal data outside the skill folder.
 
-**Prompt for a local assistant:**
+**Simple example:**
 
 ```text
-Install all English skills from https://github.com/Jungle-Bert/low_codex_skills.
-Clone or download the ZIP, or reuse an existing complete local copy. Read repository AI_readme.md and README.en.md,
-then AI_readme.md, README.md, and SKILL.md for each skill under general/en/ and hardware/en/.
-Confirm the user skill directory this host actually discovers. Install only these five skills:
-concise-collaboration, project-readme-first, user-assisted-operations,
-personal-pitfall-knowledge, and hardware-connection-check.
-Back up same-name installations outside discovery directories, then copy each entire folder;
-preserve unrelated skills and do not install the Chinese editions.
-Check Python 3.9+. Follow the pitfall README to merge trigger rules into the global AGENTS.md the host actually loads,
-preserving existing rules and personal data rather than replacing the file. If no database exists,
-report the initialization requirement instead of claiming lookup is ready.
-Verify installed files and host discovery. Report skill paths, backup locations, and incomplete steps.
+Install all English skills in <repository folder>. Read README.en.md and AI_readme.md first.
 ```
 
-For Chinese editions, replace English/en with Chinese/zh. The English concise skill still defaults to Chinese replies unless another language is requested. For an existing download, change the first sentence to “Install all English skills from the repository extracted at <repository folder>”; no new download is needed.
+Or attach the complete skill ZIP and say: “Install the English skills in this attachment, following its README and AI_readme.md.” A repository URL can replace the path; specify Chinese for Chinese editions. The English concise skill still defaults to Chinese replies unless another language is requested.
 
 ### Method two: Install one skill
 
@@ -81,19 +70,13 @@ For Chinese editions, replace English/en with Chinese/zh. The English concise sk
 2. Read its `AI_readme.md` and `README.md`; copy the entire folder as `<skills-dir>/project-readme-first/`, retaining `agents/`, `LICENSE`, and its actual resources.
 3. Invoke `$project-readme-first`, or let Codex select it for relevant tasks. No other skill is required; follow the selected skill's README for extra integration such as global rules.
 
-**Prompt for a local assistant:**
+**Simple example:**
 
 ```text
-Install only the English project-readme-first skill from
-https://github.com/Jungle-Bert/low_codex_skills/tree/main/general/en/project-readme-first.
-You may clone or download the repository, but install only this skill.
-Read its AI_readme.md, README.md, and SKILL.md first; confirm completeness and the user skill directory this host discovers.
-Back up a same-name installation outside discovery directories, then copy the entire folder, retaining LICENSE.
-Do not install other skills or the Chinese edition, or change unrelated global rules.
-Verify installed files and host discovery. Report the path, backup, and incomplete steps.
+Install the skill in <individual skill folder>. Read README.md and AI_readme.md first.
 ```
 
-Replace the URL, name, and language for another skill. If you have a downloaded standalone folder, use the offline prompt in its README.
+You can also provide one complete skill folder or ZIP and say “Install this skill.” The AI follows its entry documents for installation and usage integration.
 
 ## Contributions and repository permissions
 

@@ -9,13 +9,10 @@ Identify resource preparation, downloads, or access steps the user can complete 
 3. Install one language only. Before replacing a same-name folder, back it up outside skill discovery directories, then replace the whole folder while preserving other skills.
 4. Check that the installed `SKILL.md` is readable and the host discovers it. If absent, restart the host and invoke the skill explicitly.
 
-Give this prompt to a Codex/GPT assistant with local file tools, replacing the download path:
+Give a folder path or complete skill ZIP to an AI with local file tools, for example:
 
 ```text
-Install the user-assisted-operations skill I downloaded to <this skill folder>.
-Read AI_readme.md, README.md, and SKILL.md first. Check completeness, dependencies, and the user skill directory this host actually discovers.
-Install only the language edition in this folder. Back up a same-name installation outside discovery directories, then copy the entire folder; do not install both editions.
-Check the installed files and host discovery. Report the path and any incomplete steps. Do not change unrelated skills or global rules.
+Install the skill in <this skill folder>. Read README.md and AI_readme.md first.
 ```
 
 A web-only chat cannot write to your computer; use an assistant with local file tools. See [official OpenAI guidance](https://learn.chatgpt.com/docs/build-skills) for host locations and discovery.

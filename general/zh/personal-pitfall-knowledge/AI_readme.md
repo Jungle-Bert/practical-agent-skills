@@ -10,4 +10,5 @@
 - 验证：`python -m unittest discover -s <skill>/tests`、skill-creator quick_validate、仓库 `git diff --check`；中英文脚本必须逐字一致。
 - 不变量：search 不读卡片；正常知识输出 ≤3000 字符；无匹配不扫描详情；状态/边界必须保留；公开仓库不含个人数据库或个人绝对路径。
 - 修改数据结构时同步中文/英文文档及模板。无构建/部署，发布为 Git 提交推送。
+- AI 收到安装请求时按 README 完成安装和必要接入，检查宿主发现结果，简短给出安装位置及调用示例。
 - Last verified：2026-10-02；统一入口结构、相对链接与脚本测试，真实发现及触发仍依赖宿主。

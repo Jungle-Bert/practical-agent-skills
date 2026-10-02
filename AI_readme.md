@@ -6,6 +6,7 @@
 - 目录 / Layout：`general/{zh,en}/` 放通用技能；`hardware/{zh,en}/` 放硬件技能；`LICENSE` 为 MIT 许可证。
 - 入口 / Entry：10 个语言版本统一包含 `README.md`、`AI_readme.md`、`SKILL.md`、`agents/openai.yaml` 和 `LICENSE`；仅知识库技能附加 scripts/references/tests。每个技能只安装一个语言版本。
 - 安装 / Installation：根部双语 README 提供全部 5 个技能和单个技能的手动方法、在线／离线助手提示词；宿主实际发现目录优先，当前官方为 `~/.agents/skills`，已有环境可能使用 `.codex/skills`。同名备份放发现目录以外。
+- AI 安装入口：用户提供路径、仓库链接或完整压缩包并请求安装时，按 README 和所选技能的入口文档完成安装、必要接入及发现检查，简短报告安装位置和调用方式；无需用户重复列出步骤。
 - 依赖 / Dependencies：知识库检索工具需要 Python 3.9+ 标准库；其他技能无脚本依赖。验证使用 Python、PyYAML 和 Codex skill-creator 自带的 `scripts/quick_validate.py`。
 - 验证命令 / Validation：对每个技能目录执行 `python -X utf8 <skill-creator-path>/scripts/quick_validate.py <skill-folder>`；对知识库技能执行 `python -X utf8 -m unittest discover -s <skill-folder>/tests`；检查界面 YAML、相对链接和中英文行为一致性；执行 `git diff --check`。UTF-8 模式避免 Windows 默认 GBK 导致 UnicodeDecodeError。
 - 构建与部署 / Build and deploy：无需构建或部署；发布通过普通 Git 提交与推送完成。不要上传本地凭据、个人绝对路径或无关技能。

@@ -8,4 +8,5 @@
 - Invariants: AI_readme.md is preferred but not the only source. Do not create documents during read-only work without authorization; mark unknown facts as unconfirmed.
 - Changes: Synchronize the other language edition, usage, and interface text; do not read unrelated repository skills.
 - Checks: skill-creator quick_validate, relative links, interface YAML, bilingual behavior, and git diff --check; separately check host discovery and actual usage when applying.
+- For an installation request, follow README for installation and required integration, check host discovery, and briefly report the installed path and an invocation example.
 - Last verified: 2026-10-02; entry documents and structure checks. Actual discovery depends on the host.

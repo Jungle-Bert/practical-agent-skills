@@ -10,4 +10,5 @@
 - Checks: unittest discovery under tests, skill-creator quick_validate, and git diff --check. Both language editions must have identical scripts.
 - Invariants: Search never reads cards; normal knowledge output ≤3000 characters; no-match never scans details; preserve evidence boundaries; no personal data/absolute paths in the public repo.
 - Synchronize language docs and templates after schema changes. No build/deployment; publication uses Git commit/push.
+- For an installation request, follow README for installation and required integration, check host discovery, and briefly report the installed path and an invocation example.
 - Last verified: 2026-10-02; common entry layout, relative links, and script tests. Actual discovery and invocation depend on the host.

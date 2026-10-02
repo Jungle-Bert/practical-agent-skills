@@ -20,15 +20,10 @@ The folder contains the common entry documents and the resources needed for look
 3. Install one language. Back up same-name installations outside discovery directories before replacing the entire skill folder. Keep the personal database in its separate root; installation and updates must not overwrite it.
 4. Check installed files and host discovery; restart the host if necessary. Follow the next section for automatic triggers. Copying files alone does not establish trigger integration.
 
-Give this prompt to a Codex/GPT assistant with local file tools; a web-only chat cannot write to your computer:
+Give a folder path or complete skill ZIP to an AI with local file tools, for example:
 
 ```text
-Install the personal-pitfall-knowledge skill I downloaded to <this skill folder>.
-Read AI_readme.md, README.md, and SKILL.md first. Check Python 3.9+ and the user skill directory this host actually discovers.
-Install this language only. Back up same-name installations outside discovery directories, then copy the whole folder, retaining LICENSE.
-Follow the README to merge trigger rules into the global AGENTS.md the host actually loads; preserve existing rules rather than replacing the file.
-Preserve personal data. If no database exists, report the initialization requirement instead of claiming lookup is ready; do not traverse personal history.
-Check files, host discovery, and global integration. Report paths, backups, and incomplete steps.
+Install the skill in <this skill folder>. Read README.md and AI_readme.md first.
 ```
 
 ## Skill files and maintenance
@@ -43,6 +38,8 @@ Check files, host discovery, and global integration. Report paths, backups, and 
 No build step. Synchronize both language editions; scripts must be identical. Check relative links, interface text, and the validation described below.
 
 ## Triggers and integration
+
+During AI-assisted installation, merge the rules below into the global AGENTS.md the host actually loads for automatic lookup and capture. Preserve existing content and personal data. If the database is absent, report that incomplete step; do not claim lookup is ready or automatically traverse personal history.
 
 Add these short rules to global `~/.codex/AGENTS.md`, using the actual installed skill path:
 

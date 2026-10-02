@@ -8,4 +8,5 @@
 - Invariants: Reuse supplied information without asking again. Confirmation does not authorize flashing, erasing, or resetting, and must not interrupt ongoing tests.
 - Changes: Synchronize the other language edition, usage, and interface text; do not read unrelated repository skills.
 - Checks: skill-creator quick_validate, relative links, interface YAML, bilingual behavior, and git diff --check; separately check host discovery and actual usage when applying.
+- For an installation request, follow README for installation and required integration, check host discovery, and briefly report the installed path and an invocation example.
 - Last verified: 2026-10-02; entry documents and structure checks. Actual discovery depends on the host.
