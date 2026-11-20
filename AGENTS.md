@@ -3,6 +3,7 @@
 - 默认使用中文，先给结论，回复简洁；修改后只报告变化、验证和剩余问题。
 - 本项目负责个人 skill 的编写、更新、应用、验证，以及用户指定 skill 的 GitHub 上传与持续维护。
 - 开始任务先读 `AI_readme.md` 和 `README.md`，再按任务读取相关 skill 文档。
+- 顶层按用途分为 low_token/ 和 learning/；low_token/ 下保留 general/ 与 hardware/，各技能继续提供 zh/en 版本。
 - 编写或更新 skill 时使用 `skill-creator`，同步中英文版本、界面说明和 README 索引。
 - 每个技能的语言版本独立包含 README.md、AI_readme.md、SKILL.md、agents/openai.yaml 和 LICENSE；仅按实际需要添加 scripts、references 或 tests，不创建空目录。
 - 安装提示词只给路径或附件加简短安装请求；具体步骤和必要接入写入 README.md、AI_readme.md，让安装 AI 自行读取执行。

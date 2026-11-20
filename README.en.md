@@ -2,26 +2,27 @@
 
 English | [中文](README.md)
 
-Practical skills for AI assistants covering **reduced unnecessary usage** and **guided learning**. Usage-reduction skills currently live in `general/` and `hardware/`; learning skills live in `learning/`. Each has Chinese and English editions. No fixed token or quota savings are claimed, and host compatibility requires actual validation.
+Practical skills for AI assistants covering **reduced unnecessary usage** and **guided learning**. Usage-reduction skills currently live in `low_token/general/` and `low_token/hardware/`; learning skills live in `learning/`. Each has Chinese and English editions. No fixed token or quota savings are claimed, and host compatibility requires actual validation.
 
 ## Skills
 
 | Category | Skill | Purpose | 中文 | English |
 | --- | --- | --- | --- | --- |
-| General | concise-collaboration | Keep replies brief and avoid repeating context | [中文](general/zh/concise-collaboration/README.md) | [English](general/en/concise-collaboration/README.md) |
-| General | project-readme-first | Read project Markdown before targeted source inspection | [中文](general/zh/project-readme-first/README.md) | [English](general/en/project-readme-first/README.md) |
-| General | user-assisted-operations | Coordinate costly downloads, file preparation, and account access | [中文](general/zh/user-assisted-operations/README.md) | [English](general/en/user-assisted-operations/README.md) |
-| General | personal-pitfall-knowledge | Search compact metadata, read selected cards, and save verified fixes | [中文](general/zh/personal-pitfall-knowledge/README.md) | [English](general/en/personal-pitfall-knowledge/README.md) |
-| Hardware | hardware-connection-check | Confirm debugger and peripheral connections before targeted checks | [中文](hardware/zh/hardware-connection-check/README.md) | [English](hardware/en/hardware-connection-check/README.md) |
+| Low token / General | concise-collaboration | Keep replies brief and avoid repeating context | [中文](low_token/general/zh/concise-collaboration/README.md) | [English](low_token/general/en/concise-collaboration/README.md) |
+| Low token / General | project-readme-first | Read project Markdown before targeted source inspection | [中文](low_token/general/zh/project-readme-first/README.md) | [English](low_token/general/en/project-readme-first/README.md) |
+| Low token / General | user-assisted-operations | Coordinate costly downloads, file preparation, and account access | [中文](low_token/general/zh/user-assisted-operations/README.md) | [English](low_token/general/en/user-assisted-operations/README.md) |
+| Low token / General | personal-pitfall-knowledge | Search compact metadata, read selected cards, and save verified fixes | [中文](low_token/general/zh/personal-pitfall-knowledge/README.md) | [English](low_token/general/en/personal-pitfall-knowledge/README.md) |
+| Low token / Hardware | hardware-connection-check | Confirm debugger and peripheral connections before targeted checks | [中文](low_token/hardware/zh/hardware-connection-check/README.md) | [English](low_token/hardware/en/hardware-connection-check/README.md) |
 | Learning | adaptive-learning-guide | Adapt teaching to purpose, background, prerequisites, and feedback | [中文](learning/zh/adaptive-learning-guide/README.md) | [English](learning/en/adaptive-learning-guide/README.md) |
 
 ```text
-general/
-  zh/<skill-name>/SKILL.md
-  en/<skill-name>/SKILL.md
-hardware/
-  zh/hardware-connection-check/SKILL.md
-  en/hardware-connection-check/SKILL.md
+low_token/
+  general/
+    zh/<skill-name>/SKILL.md
+    en/<skill-name>/SKILL.md
+  hardware/
+    zh/hardware-connection-check/SKILL.md
+    en/hardware-connection-check/SKILL.md
 learning/
   zh/adaptive-learning-guide/SKILL.md
   en/adaptive-learning-guide/SKILL.md
@@ -55,8 +56,8 @@ Read each selected skill's `AI_readme.md`, `README.md`, and `SKILL.md` first. In
 
 ### Method one: Install all skills
 
-1. [Download and extract the repository ZIP](https://github.com/Jungle-Bert/low_codex_skills/archive/refs/heads/main.zip), or run `git clone https://github.com/Jungle-Bert/low_codex_skills.git`.
-2. Choose `en` or `zh`. Copy the four folders under `general/<language>/`, one under `hardware/<language>/`, and one under `learning/<language>/` separately into `<skills-dir>/`.
+1. [Download and extract the repository ZIP](https://github.com/Jungle-Bert/practical-agent-skills/archive/refs/heads/main.zip), or run `git clone https://github.com/Jungle-Bert/practical-agent-skills.git`.
+2. Choose `en` or `zh`. Copy the four folders under `low_token/general/<language>/`, one under `low_token/hardware/<language>/`, and one under `learning/<language>/` separately into `<skills-dir>/`.
 3. Each target is `<skills-dir>/<skill-name>/SKILL.md`: six skills total. Do not copy category/language parents or install all twelve bilingual editions. For usage reduction or learning alone, copy only skills from the corresponding directories.
 4. `personal-pitfall-knowledge` needs Python 3.9+. For automatic troubleshooting lookup and capture, follow its README to integrate global rules. Store personal data outside the skill folder.
 
@@ -70,7 +71,7 @@ Or attach the complete skill ZIP and say: “Install the English skills in this 
 
 ### Method two: Install one skill
 
-1. Download/clone the repository and use only the desired folder, such as `general/en/project-readme-first/`. A local assistant may instead retrieve that complete folder alone.
+1. Download/clone the repository and use only the desired folder, such as `low_token/general/en/project-readme-first/`. A local assistant may instead retrieve that complete folder alone.
 2. Read its `AI_readme.md` and `README.md`; copy the entire folder as `<skills-dir>/project-readme-first/`, retaining `agents/`, `LICENSE`, and its actual resources.
 3. Invoke `$project-readme-first` on hosts supporting `$skill-name`, or use the host's skill selector. No other skill is required; follow the selected skill's README for extra integration such as global rules.
 
@@ -81,6 +82,10 @@ Install the skill in <individual skill folder>. Read README.md and AI_readme.md 
 ```
 
 You can also provide one complete skill folder or ZIP and say “Install this skill.” The AI follows its entry documents for installation and usage integration.
+
+### Update an existing clone
+
+Run `git remote set-url origin https://github.com/Jungle-Bert/practical-agent-skills.git` in an existing clone, then pull updates normally. Its local folder can keep its old name. Usage-reduction source paths now live under `low_token/`; installed skill names and user-level installation locations do not need to change with repository grouping.
 
 ## Contributions and repository permissions
 
@@ -94,7 +99,7 @@ This project is the permanent maintenance home for personal skills. Codex writes
 
 The three general skills come from the author's existing local skills. `hardware-connection-check` was extracted from the local-device collaboration guidance in `user-assisted-operations`, with the author's requested ordering: ask about connections before searching for devices. The general edition no longer handles device connection checks.
 
-The pitfall search tool requires Python 3.9+ standard library. Optional PITFALL_KB_ROOT selects the local database; the default is a fixed location under the user's Documents directory. Normal queries return only short results rather than all knowledge. See its [README](general/en/personal-pitfall-knowledge/README.md) for budgets, triggers, and usage. Personal entries are not published with the skill.
+The pitfall search tool requires Python 3.9+ standard library. Optional PITFALL_KB_ROOT selects the local database; the default is a fixed location under the user's Documents directory. Normal queries return only short results rather than all knowledge. See its [README](low_token/general/en/personal-pitfall-knowledge/README.md) for budgets, triggers, and usage. Personal entries are not published with the skill.
 
 No build or deployment is needed. Keep both language editions, the index, and interface metadata in sync. See [AI_readme.md](AI_readme.md) for maintenance and validation guidance.
 
