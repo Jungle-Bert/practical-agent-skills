@@ -1,0 +1,4 @@
+interface:
+  display_name: "自适应学习引导"
+  short_description: "根据目的与水平安排学习，补齐前置知识并随理解和兴趣调整计划"
+  default_prompt: "使用 $adaptive-learning-guide，按我的目标和已有基础带我学习，并根据反馈调整。"

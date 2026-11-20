@@ -1,8 +1,8 @@
-# Low Codex Skills
+# Practical Agent Skills
 
 English | [中文](README.md)
 
-Personal Codex skills that reduce repetitive communication, unnecessary searches, and context reading. Skills are grouped into **general** and **hardware**, with Chinese and English editions. No fixed percentage of token savings is claimed.
+Practical skills for AI assistants covering **reduced unnecessary usage** and **guided learning**. Usage-reduction skills currently live in `general/` and `hardware/`; learning skills live in `learning/`. Each has Chinese and English editions. No fixed token or quota savings are claimed, and host compatibility requires actual validation.
 
 ## Skills
 
@@ -13,6 +13,7 @@ Personal Codex skills that reduce repetitive communication, unnecessary searches
 | General | user-assisted-operations | Coordinate costly downloads, file preparation, and account access | [中文](general/zh/user-assisted-operations/README.md) | [English](general/en/user-assisted-operations/README.md) |
 | General | personal-pitfall-knowledge | Search compact metadata, read selected cards, and save verified fixes | [中文](general/zh/personal-pitfall-knowledge/README.md) | [English](general/en/personal-pitfall-knowledge/README.md) |
 | Hardware | hardware-connection-check | Confirm debugger and peripheral connections before targeted checks | [中文](hardware/zh/hardware-connection-check/README.md) | [English](hardware/en/hardware-connection-check/README.md) |
+| Learning | adaptive-learning-guide | Adapt teaching to purpose, background, prerequisites, and feedback | [中文](learning/zh/adaptive-learning-guide/README.md) | [English](learning/en/adaptive-learning-guide/README.md) |
 
 ```text
 general/
@@ -21,6 +22,9 @@ general/
 hardware/
   zh/hardware-connection-check/SKILL.md
   en/hardware-connection-check/SKILL.md
+learning/
+  zh/adaptive-learning-guide/SKILL.md
+  en/adaptive-learning-guide/SKILL.md
 ```
 
 Each skill has the same base layout and can be installed by copying its folder alone:
@@ -37,11 +41,11 @@ Each skill has the same base layout and can be installed by copying its folder a
   tests/                    Optional tool tests
 ```
 
-Only `personal-pitfall-knowledge` currently needs the last three directories. Other skills have no empty placeholder directories. Routine invocation reads `SKILL.md` and task-relevant resources; installation and maintenance use the README and AI guide.
+`personal-pitfall-knowledge` includes scripts, references, and tests; `adaptive-learning-guide` adds only references for on-demand teaching examples and maintenance scenarios. Other skills have no empty placeholder directories. Routine invocation reads `SKILL.md` and task-relevant resources; installation and maintenance use the README and AI guide.
 
 ## Installation and use
 
-Install manually or give a prompt below to a Codex/GPT assistant with local file and download tools. A web-only chat cannot install directly on your computer.
+Install manually or give a prompt below to an AI assistant with local file and download tools. A web-only chat cannot install directly on your computer. Confirm discovery and invocation per host; interface YAML is optional and does not establish that all skills have been tested across hosts.
 
 ### Determine the installation directory
 
@@ -52,8 +56,8 @@ Read each selected skill's `AI_readme.md`, `README.md`, and `SKILL.md` first. In
 ### Method one: Install all skills
 
 1. [Download and extract the repository ZIP](https://github.com/Jungle-Bert/low_codex_skills/archive/refs/heads/main.zip), or run `git clone https://github.com/Jungle-Bert/low_codex_skills.git`.
-2. Choose `en` or `zh`. Copy the four skill folders under `general/<language>/` and the one under `hardware/<language>/` separately into `<skills-dir>/`.
-3. Each target is `<skills-dir>/<skill-name>/SKILL.md`: five skills total. Do not copy category/language parents or install all ten bilingual editions.
+2. Choose `en` or `zh`. Copy the four folders under `general/<language>/`, one under `hardware/<language>/`, and one under `learning/<language>/` separately into `<skills-dir>/`.
+3. Each target is `<skills-dir>/<skill-name>/SKILL.md`: six skills total. Do not copy category/language parents or install all twelve bilingual editions. For usage reduction or learning alone, copy only skills from the corresponding directories.
 4. `personal-pitfall-knowledge` needs Python 3.9+. For automatic troubleshooting lookup and capture, follow its README to integrate global rules. Store personal data outside the skill folder.
 
 **Simple example:**
@@ -68,7 +72,7 @@ Or attach the complete skill ZIP and say: “Install the English skills in this 
 
 1. Download/clone the repository and use only the desired folder, such as `general/en/project-readme-first/`. A local assistant may instead retrieve that complete folder alone.
 2. Read its `AI_readme.md` and `README.md`; copy the entire folder as `<skills-dir>/project-readme-first/`, retaining `agents/`, `LICENSE`, and its actual resources.
-3. Invoke `$project-readme-first`, or let Codex select it for relevant tasks. No other skill is required; follow the selected skill's README for extra integration such as global rules.
+3. Invoke `$project-readme-first` on hosts supporting `$skill-name`, or use the host's skill selector. No other skill is required; follow the selected skill's README for extra integration such as global rules.
 
 **Simple example:**
 

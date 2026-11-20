@@ -1,8 +1,8 @@
-# Low Codex Skills
+# Practical Agent Skills
 
 [English](README.en.md) | 中文
 
-用于减少重复沟通、无效检索和上下文读取的个人 Codex 技能。技能分为 **通用** 与 **硬件** 两类，每个技能均提供中文与英文版本；不承诺固定比例的 token 节省。
+面向 AI 助手的实用技能集，包含 **降低不必要消耗** 和 **学习引导** 两类用途。低消耗技能目前位于 `general/` 和 `hardware/`，学习技能位于 `learning/`。每个技能提供中文与英文版；不承诺固定比例的 token 或额度节省，具体宿主兼容性以实际验证为准。
 
 ## 技能目录
 
@@ -13,6 +13,7 @@
 | 通用 | user-assisted-operations | 协调高成本下载、文件准备和账号授权 | [中文](general/zh/user-assisted-operations/README.md) | [English](general/en/user-assisted-operations/README.md) |
 | 通用 | personal-pitfall-knowledge | 短索引定位旧坑，按需读取卡片，验证后自动入库 | [中文](general/zh/personal-pitfall-knowledge/README.md) | [English](general/en/personal-pitfall-knowledge/README.md) |
 | 硬件 | hardware-connection-check | 先确认仿真器、调试器与外设连接，再定向检查 | [中文](hardware/zh/hardware-connection-check/README.md) | [English](hardware/en/hardware-connection-check/README.md) |
+| 学习 | adaptive-learning-guide | 按目的与水平逐步带学，补前置并随反馈调整路线 | [中文](learning/zh/adaptive-learning-guide/README.md) | [English](learning/en/adaptive-learning-guide/README.md) |
 
 ```text
 general/
@@ -21,6 +22,9 @@ general/
 hardware/
   zh/hardware-connection-check/SKILL.md
   en/hardware-connection-check/SKILL.md
+learning/
+  zh/adaptive-learning-guide/SKILL.md
+  en/adaptive-learning-guide/SKILL.md
 ```
 
 每个技能使用相同的基础结构，单独复制一个文件夹即可安装：
@@ -37,11 +41,11 @@ hardware/
   tests/                    按需：工具测试
 ```
 
-目前只有 `personal-pitfall-knowledge` 需要后三个目录，不给其他技能添加空目录。日常调用只读 `SKILL.md` 及当前任务所需资源；安装或维护时才读 README 和 AI 导航。
+`personal-pitfall-knowledge` 包含 scripts、references 和 tests；`adaptive-learning-guide` 只额外包含按需教学示例与验证场景的 references。不给其他技能添加空目录。日常调用只读 `SKILL.md` 及当前任务所需资源；安装或维护时才读 README 和 AI 导航。
 
 ## 安装与使用
 
-支持手动安装，也可把下方提示词交给有本地文件读写和下载权限的 Codex／GPT 助手。普通网页聊天无法直接安装到电脑。
+支持手动安装，也可把下方提示词交给有本地文件读写和下载权限的 AI 助手。普通网页聊天无法直接安装到电脑；不同宿主的技能发现与调用方式需分别确认，界面 YAML 可选，不能据此认定所有技能已跨宿主实测。
 
 ### 先确定安装目录
 
@@ -52,8 +56,8 @@ hardware/
 ### 方法一：安装全部技能
 
 1. [下载仓库 ZIP](https://github.com/Jungle-Bert/low_codex_skills/archive/refs/heads/main.zip) 并解压，或执行 `git clone https://github.com/Jungle-Bert/low_codex_skills.git`。
-2. 选择 `zh` 或 `en`；将 `general/<语言>/` 下 4 个技能文件夹和 `hardware/<语言>/` 下 1 个技能文件夹分别复制到 `<skills-dir>/`。
-3. 目标是 `<skills-dir>/<skill-name>/SKILL.md`，共 5 个技能；不要复制 `general`、`hardware` 或语言父目录，也不要把 10 个双语版本都装进去。
+2. 选择 `zh` 或 `en`；将 `general/<语言>/` 下 4 个、`hardware/<语言>/` 下 1 个和 `learning/<语言>/` 下 1 个技能文件夹分别复制到 `<skills-dir>/`。
+3. 目标是 `<skills-dir>/<skill-name>/SKILL.md`，共 6 个技能；不要复制用途或语言父目录，也不要把 12 个双语版本都装进去。只需要低消耗或学习用途时，可仅复制对应目录中的技能。
 4. `personal-pitfall-knowledge` 需要 Python 3.9+；需要自动排障检索及入库时，按其 README 接入全局规则。个人数据库保存在技能文件夹之外。
 
 **简单示例：**
@@ -68,7 +72,7 @@ hardware/
 
 1. 下载仓库 ZIP／克隆后，只使用目标技能目录，例如 `general/zh/project-readme-first/`。也可让本地助手仅获取该目录的完整内容。
 2. 阅读该目录的 `AI_readme.md` 和 `README.md`，将整个目录复制为 `<skills-dir>/project-readme-first/`，保留 `agents/`、`LICENSE` 以及该技能实际包含的资源。
-3. 使用 `$project-readme-first` 显式调用，或让 Codex 按任务选择。单独安装不要求其他 skill；全局规则等附加接入按所选 skill 的 README 处理。
+3. 在支持 `$skill-name` 的宿主中使用 `$project-readme-first` 显式调用，其他宿主按其技能选择方式使用。单独安装不要求其他 skill；全局规则等附加接入按所选 skill 的 README 处理。
 
 **简单示例：**
 

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Adaptive Learning Guide"
+  short_description: "Plan, teach, and adapt to learner goals and understanding"
+  default_prompt: "Use $adaptive-learning-guide to teach me based on my goals and background, adapting to my feedback."
