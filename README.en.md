@@ -2,7 +2,7 @@
 
 English | [中文](README.md)
 
-Practical skills for AI assistants covering **reduced unnecessary usage** and **guided learning**. Usage-reduction skills currently live in `low_token/general/` and `low_token/hardware/`; learning skills live in `learning/`. Each has Chinese and English editions. No fixed token or quota savings are claimed, and host compatibility requires actual validation.
+Practical skills for AI assistants covering **reduced unnecessary usage**, **guided learning**, and **collaborative clarification**. These live under `low_token/`, `learning/`, and `collaboration/`. Each skill has Chinese and English editions. No fixed token or quota savings are claimed, and host compatibility requires actual validation.
 
 ## Skills
 
@@ -14,6 +14,7 @@ Practical skills for AI assistants covering **reduced unnecessary usage** and **
 | Low token / General | personal-pitfall-knowledge | Search compact metadata, read selected cards, and save verified fixes | [中文](low_token/general/zh/personal-pitfall-knowledge/README.md) | [English](low_token/general/en/personal-pitfall-knowledge/README.md) |
 | Low token / Hardware | hardware-connection-check | Confirm debugger and peripheral connections before targeted checks | [中文](low_token/hardware/zh/hardware-connection-check/README.md) | [English](low_token/hardware/en/hardware-connection-check/README.md) |
 | Learning | adaptive-learning-guide | Adapt teaching to purpose, background, prerequisites, and feedback | [中文](learning/zh/adaptive-learning-guide/README.md) | [English](learning/en/adaptive-learning-guide/README.md) |
+| Collaboration | adaptive-clarification | Reuse context, ask proactively when needed, and revise feedback | [中文](collaboration/zh/adaptive-clarification/README.md) | [English](collaboration/en/adaptive-clarification/README.md) |
 
 ```text
 low_token/
@@ -26,6 +27,9 @@ low_token/
 learning/
   zh/adaptive-learning-guide/SKILL.md
   en/adaptive-learning-guide/SKILL.md
+collaboration/
+  zh/adaptive-clarification/SKILL.md
+  en/adaptive-clarification/SKILL.md
 ```
 
 Each skill has the same base layout and can be installed by copying its folder alone:
@@ -42,7 +46,7 @@ Each skill has the same base layout and can be installed by copying its folder a
   tests/                    Optional tool tests
 ```
 
-`personal-pitfall-knowledge` includes scripts, references, and tests; `adaptive-learning-guide` adds only references for on-demand teaching examples and maintenance scenarios. Other skills have no empty placeholder directories. Routine invocation reads `SKILL.md` and task-relevant resources; installation and maintenance use the README and AI guide.
+`personal-pitfall-knowledge` and `adaptive-clarification` include scripts, references, and tests; `adaptive-learning-guide` adds references only. Other skills have no empty placeholder directories. Routine invocation reads `SKILL.md` and task-relevant resources; installation and maintenance use the README and AI guide.
 
 ## Installation and use
 
@@ -57,9 +61,9 @@ Read each selected skill's `AI_readme.md`, `README.md`, and `SKILL.md` first. In
 ### Method one: Install all skills
 
 1. [Download and extract the repository ZIP](https://github.com/Jungle-Bert/practical-agent-skills/archive/refs/heads/main.zip), or run `git clone https://github.com/Jungle-Bert/practical-agent-skills.git`.
-2. Choose `en` or `zh`. Copy the four folders under `low_token/general/<language>/`, one under `low_token/hardware/<language>/`, and one under `learning/<language>/` separately into `<skills-dir>/`.
-3. Each target is `<skills-dir>/<skill-name>/SKILL.md`: six skills total. Do not copy category/language parents or install all twelve bilingual editions. For usage reduction or learning alone, copy only skills from the corresponding directories.
-4. `personal-pitfall-knowledge` needs Python 3.9+. For automatic troubleshooting lookup and capture, follow its README to integrate global rules. Store personal data outside the skill folder.
+2. Choose `en` or `zh`. Copy four folders from `low_token/general/<language>/` and one each from `low_token/hardware/<language>/`, `learning/<language>/`, and `collaboration/<language>/` separately into `<skills-dir>/`.
+3. Each target is `<skills-dir>/<skill-name>/SKILL.md`: seven skills total. Do not copy category/language parents or install all fourteen bilingual editions. Copy only the relevant category if that is all you need.
+4. Pitfall lookup and clarification feedback tools require Python 3.9+. Follow the pitfall README for global trigger integration; clarification data defaults to `~/.agent-feedback/` outside repositories. Personal data and backups are not published. Installing clarification does not automatically remove grill-me; back up/disable it only when replacement is requested.
 
 **Simple example:**
 

@@ -2,7 +2,7 @@
 
 [English](README.en.md) | 中文
 
-面向 AI 助手的实用技能集，包含 **降低不必要消耗** 和 **学习引导** 两类用途。低消耗技能目前位于 `low_token/general/` 和 `low_token/hardware/`，学习技能位于 `learning/`。每个技能提供中文与英文版；不承诺固定比例的 token 或额度节省，具体宿主兼容性以实际验证为准。
+面向 AI 助手的实用技能集，包含 **降低不必要消耗**、**学习引导** 和 **协作澄清**。低消耗技能位于 `low_token/`，学习技能位于 `learning/`，协作技能位于 `collaboration/`。每个技能提供中文与英文版；不承诺固定比例的 token 或额度节省，具体宿主兼容性以实际验证为准。
 
 ## 技能目录
 
@@ -14,6 +14,7 @@
 | 低消耗／通用 | personal-pitfall-knowledge | 短索引定位旧坑，按需读取卡片，验证后自动入库 | [中文](low_token/general/zh/personal-pitfall-knowledge/README.md) | [English](low_token/general/en/personal-pitfall-knowledge/README.md) |
 | 低消耗／硬件 | hardware-connection-check | 先确认仿真器、调试器与外设连接，再定向检查 | [中文](low_token/hardware/zh/hardware-connection-check/README.md) | [English](low_token/hardware/en/hardware-connection-check/README.md) |
 | 学习 | adaptive-learning-guide | 按目的与水平逐步带学，补前置并随反馈调整路线 | [中文](learning/zh/adaptive-learning-guide/README.md) | [English](learning/en/adaptive-learning-guide/README.md) |
+| 协作 | adaptive-clarification | 先复用资料再主动澄清，记录不同反馈并支持更正 | [中文](collaboration/zh/adaptive-clarification/README.md) | [English](collaboration/en/adaptive-clarification/README.md) |
 
 ```text
 low_token/
@@ -26,6 +27,9 @@ low_token/
 learning/
   zh/adaptive-learning-guide/SKILL.md
   en/adaptive-learning-guide/SKILL.md
+collaboration/
+  zh/adaptive-clarification/SKILL.md
+  en/adaptive-clarification/SKILL.md
 ```
 
 每个技能使用相同的基础结构，单独复制一个文件夹即可安装：
@@ -42,7 +46,7 @@ learning/
   tests/                    按需：工具测试
 ```
 
-`personal-pitfall-knowledge` 包含 scripts、references 和 tests；`adaptive-learning-guide` 只额外包含按需教学示例与验证场景的 references。不给其他技能添加空目录。日常调用只读 `SKILL.md` 及当前任务所需资源；安装或维护时才读 README 和 AI 导航。
+`personal-pitfall-knowledge` 和 `adaptive-clarification` 包含 scripts、references 和 tests；`adaptive-learning-guide` 只额外包含 references。不给其他技能添加空目录。日常调用只读 `SKILL.md` 及当前任务所需资源；安装或维护时才读 README 和 AI 导航。
 
 ## 安装与使用
 
@@ -57,9 +61,9 @@ learning/
 ### 方法一：安装全部技能
 
 1. [下载仓库 ZIP](https://github.com/Jungle-Bert/practical-agent-skills/archive/refs/heads/main.zip) 并解压，或执行 `git clone https://github.com/Jungle-Bert/practical-agent-skills.git`。
-2. 选择 `zh` 或 `en`；将 `low_token/general/<语言>/` 下 4 个、`low_token/hardware/<语言>/` 下 1 个和 `learning/<语言>/` 下 1 个技能文件夹分别复制到 `<skills-dir>/`。
-3. 目标是 `<skills-dir>/<skill-name>/SKILL.md`，共 6 个技能；不要复制用途或语言父目录，也不要把 12 个双语版本都装进去。只需要低消耗或学习用途时，可仅复制对应目录中的技能。
-4. `personal-pitfall-knowledge` 需要 Python 3.9+；需要自动排障检索及入库时，按其 README 接入全局规则。个人数据库保存在技能文件夹之外。
+2. 选择 `zh` 或 `en`；将 `low_token/general/<语言>/` 下 4 个，以及 `low_token/hardware/<语言>/`、`learning/<语言>/`、`collaboration/<语言>/` 下各 1 个技能文件夹分别复制到 `<skills-dir>/`。
+3. 目标是 `<skills-dir>/<skill-name>/SKILL.md`，共 7 个技能；不要复制用途或语言父目录，也不要把 14 个双语版本都装进去。只需要某类用途时，仅复制对应目录中的技能。
+4. 知识库检索和澄清反馈工具需要 Python 3.9+。知识库自动触发按其 README 接入全局规则；协作反馈默认保存在仓库外的 `~/.agent-feedback/`。个人数据与备份不随技能发布。安装新版澄清技能不自动移除 grill-me，只有用户要求替换时才备份停用旧版。
 
 **简单示例：**
 

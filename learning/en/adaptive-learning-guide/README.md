@@ -30,7 +30,7 @@ You can also request poetry discussion without exercises, or say “I don't unde
 - Adjust as interest, deadlines, or purpose change; flag tangents and let the learner choose.
 - Distinguish covered material, self-reported understanding, and demonstrated performance. Keep progress in the conversation by default; save or hand off only as requested.
 
-Learning requests do not automatically authorize project changes, dependency installation, hardware operations, or paid services. Helpers remain optional and follow their own activation conditions; teaching works without them. Use `grill-me` only when explicitly invoked and suitable for its purpose.
+Learning requests do not automatically authorize project changes, dependency installation, hardware operations, or paid services. Helpers are optional. adaptive-clarification may retain necessary feedback under its private-record rules and user retention preferences, while the learning skill coordinates questions without repeating intake or automatically creating a full learning-progress file.
 
 ## Files and maintenance
 
