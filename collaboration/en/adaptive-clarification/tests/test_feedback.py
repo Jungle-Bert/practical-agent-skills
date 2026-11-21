@@ -86,6 +86,28 @@ class FeedbackTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 feedback.store_path(parent / "data", "task")
 
+    def test_repository_storage_requires_opt_in_and_preserves_revisions(self):
+        for git_is_file in (False, True):
+            with self.subTest(git_is_file=git_is_file):
+                project = self.root / ("worktree" if git_is_file else "repository")
+                project.mkdir()
+                marker = project / ".git"
+                marker.touch() if git_is_file else marker.mkdir()
+                with self.assertRaises(ValueError):
+                    feedback.store_path(project / ".agent-feedback", "task")
+                path = feedback.store_path(project / ".agent-feedback", "task", allow_repository=True)
+                feedback.save_entry(path, "task", self.entry())
+                feedback.save_entry(path, "task", self.entry(value="Confirmed Python", status="stated", reason="User confirmed"))
+                state = feedback.read_state(path, "task")
+                self.assertEqual(state["revision"], 2)
+                self.assertEqual(state["history"][-1]["previous"]["status"], "uncertain")
+                self.assertTrue(path.is_relative_to(project.resolve()))
+
+    def test_repository_opt_in_never_allows_skill_folder_storage(self):
+        (self.root / "SKILL.md").touch()
+        with self.assertRaises(ValueError):
+            feedback.store_path(self.root / "data", "task", allow_repository=True)
+
     def test_failed_replace_preserves_old_state_and_cleans_own_lock(self):
         feedback.save_entry(self.path, "project-a/task-one", self.entry())
         before = self.path.read_bytes()
@@ -153,6 +175,20 @@ class FeedbackTests(unittest.TestCase):
             result = subprocess.run(base + command, capture_output=True, encoding="utf-8")
             self.assertEqual(result.returncode, 0, result.stderr)
             self.assertIn(expected, result.stdout)
+
+    def test_cli_repository_choice_gate(self):
+        (self.root / ".git").mkdir()
+        entry_path = self.root / "entry.json"
+        entry_path.write_text(json.dumps(self.entry()), encoding="utf-8")
+        base = [sys.executable, "-X", "utf8", str(Path(feedback.__file__)), "--root", str(self.root / "data"), "--context", "task"]
+        denied = subprocess.run(base + ["record", "--entry", str(entry_path)], capture_output=True, encoding="utf-8")
+        self.assertNotEqual(denied.returncode, 0)
+        self.assertFalse((self.root / "data").exists())
+        allowed = subprocess.run(base + ["--allow-repository", "record", "--entry", str(entry_path)], capture_output=True, encoding="utf-8")
+        self.assertEqual(allowed.returncode, 0, allowed.stderr)
+        shown = subprocess.run(base + ["--allow-repository", "show"], capture_output=True, encoding="utf-8")
+        self.assertEqual(shown.returncode, 0, shown.stderr)
+        self.assertIn("Possibly Python", shown.stdout)
 
 
 if __name__ == "__main__":

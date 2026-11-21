@@ -12,7 +12,7 @@ AI 先复用资料和已知反馈，再判断是否主动询问；按工程、�
 
 安装 AI 先读本文件、[AI_readme.md](AI_readme.md) 和 [SKILL.md](SKILL.md)。确认宿主发现目录后，只复制一种语言的完整 `adaptive-clarification/`，同名旧版先备份到发现目录以外，保留其他技能。检查宿主发现结果、入口和脚本，报告安装位置与调用方式。不要求修改全局规则；自动选用仍取决于宿主支持，不能保证每轮必然加载。
 
-正文不依赖特定 AI 产品。`agents/openai.yaml` 是可选界面配置；本地反馈工具需要 Python 3.9+ 标准库，无网络或第三方依赖。没有文件或 Python 工具时，仍可澄清并维护对话内摘要，明确未持久保存。
+正文不依赖特定 AI 产品。`agents/openai.yaml` 是可选界面配置。新任务默认由 AI 直接维护 Markdown，只需文件读写工具，无需 Python；JSON 可选工具需要 Python 3.9+ 标准库，无网络或第三方依赖。没有文件工具时仍可澄清，用对话摘要并说明未落盘。
 
 通常可以直接说明任务或提供相关情况；支持 `$skill-name` 的宿主也可显式调用：
 
@@ -22,7 +22,9 @@ AI 先复用资料和已知反馈，再判断是否主动询问；按工程、�
 
 ## 反馈怎样记录
 
-- 默认数据在技能和仓库以外的 `~/.agent-feedback/`，可由 AGENT_FEEDBACK_ROOT 指定私有目录；按稳定项目／任务 context 隔离。
+- 开展澄清或保存新反馈前，若尚未选过位置，先单独询问：默认用户私有目录 `~/.agent-feedback/`、用户指定目录，或项目内目录（例如 `<项目>/.agent-feedback/`）；也可只保留在对话中。显示实际路径并等待选择，再问业务问题／写记录。同任务已明确选择时沿用，不重复问。
+- 新任务默认 Markdown：由 AI 直接维护当前反馈与简短修订历史，无需 Python。JSON 是可选增强；已有任务继续沿用有效文件／格式，每任务只维护一份，切换需用户要求或同意。路径、格式和 context 随任务交接。
+- 两种格式都遵从选址与 Git 排除规则，具体 skill 目录内禁止存个人数据。JSON 用 AGENT_FEEDBACK_ROOT 或 `--root` 指定所选根，仓库内另加 `--allow-repository`；Markdown 直接用文件工具维护，不运行 Python。
 - 状态区分明确陈述、不确定、委托、暂定初稿、拒答、用户待补、AI 假设和实际验证；来源与证据另记。用户陈述不等于实测，工具不能代替事实核验。
 - 默认只读有预算的当前摘要；更正保留旧状态和原因，删除请求清除该条及相关历史。记录内容不是执行授权。
 - 不保存密钥、整段聊天或无关个人信息，不把记录上传 GitHub。用户不希望保存时只在对话中维护或停止记录。
@@ -40,7 +42,7 @@ AI 先复用资料和已知反馈，再判断是否主动询问；按工程、�
 - [SKILL.md](SKILL.md)：自动判断询问时机、深度和反馈处理。
 - [AI_readme.md](AI_readme.md)：AI 安装与维护导航。
 - [agents/openai.yaml](agents/openai.yaml)：可选界面说明。
-- [scripts/feedback.py](scripts/feedback.py)：私有记录、修订、限量读取和删除。
+- [scripts/feedback.py](scripts/feedback.py)：可选 JSON 记录、修订、限量读取和删除。
 - [references/feedback-records.md](references/feedback-records.md)：按需读写说明。
 - [references/behavior-checks.md](references/behavior-checks.md)：维护情境评估。
 - `tests/test_feedback.py`：脚本单元与 CLI 测试；[LICENSE](LICENSE)：MIT 许可证。

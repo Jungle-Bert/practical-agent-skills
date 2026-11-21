@@ -1,6 +1,6 @@
 interface:
   display_name: "Adaptive Clarification"
   short_description: "Ask when needed, reuse context, and keep revisable feedback"
-  default_prompt: "Use $adaptive-clarification to reuse context, ask when needed, and keep revisable task feedback."
+  default_prompt: "Use $adaptive-clarification to reuse context, confirm feedback storage before clarification, and keep revisable task records."
 policy:
   allow_implicit_invocation: true

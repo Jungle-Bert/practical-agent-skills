@@ -63,7 +63,7 @@ collaboration/
 1. [下载仓库 ZIP](https://github.com/Jungle-Bert/practical-agent-skills/archive/refs/heads/main.zip) 并解压，或执行 `git clone https://github.com/Jungle-Bert/practical-agent-skills.git`。
 2. 选择 `zh` 或 `en`；将 `low_token/general/<语言>/` 下 4 个，以及 `low_token/hardware/<语言>/`、`learning/<语言>/`、`collaboration/<语言>/` 下各 1 个技能文件夹分别复制到 `<skills-dir>/`。
 3. 目标是 `<skills-dir>/<skill-name>/SKILL.md`，共 7 个技能；不要复制用途或语言父目录，也不要把 14 个双语版本都装进去。只需要某类用途时，仅复制对应目录中的技能。
-4. 知识库检索和澄清反馈工具需要 Python 3.9+。知识库自动触发按其 README 接入全局规则；协作反馈默认保存在仓库外的 `~/.agent-feedback/`。个人数据与备份不随技能发布。安装新版澄清技能不自动移除 grill-me，只有用户要求替换时才备份停用旧版。
+4. 知识库检索及可选澄清 JSON 工具需要 Python 3.9+；澄清新任务默认由 AI 维护 Markdown，无需 Python，已有记录沿用且每任务只有一份有效台账。知识库自动触发按其 README 接入全局规则；澄清前先选用户私有目录（候选 `~/.agent-feedback/`）、指定目录或项目目录，也可只保留对话，同任务已有明确选择不重复问。项目内记录排除 Git 跟踪，个人数据与备份不随技能发布。安装新版澄清技能不自动移除 grill-me，只有用户要求替换时才备份停用旧版。
 
 **简单示例：**
 

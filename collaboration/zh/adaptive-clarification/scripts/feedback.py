@@ -1,4 +1,4 @@
-"""Bounded, private task feedback with atomic revisions; Python 3.9+."""
+"""Bounded task feedback with atomic revisions; Python 3.9+."""
 
 import argparse
 from contextlib import contextmanager
@@ -21,6 +21,7 @@ SOURCES = {"user", "document", "ai", "verification"}
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", default=os.environ.get("AGENT_FEEDBACK_ROOT", str(Path.home() / ".agent-feedback")))
+    parser.add_argument("--allow-repository", action="store_true", help="Use only after the user selects repository storage; does not authorize publishing.")
     parser.add_argument("--context", required=True)
     commands = parser.add_subparsers(dest="command", required=True)
     show = commands.add_parser("show")
@@ -32,7 +33,7 @@ def main():
     forget.add_argument("--id", required=True)
     args = parser.parse_args()
     try:
-        path = store_path(Path(args.root), args.context)
+        path = store_path(Path(args.root), args.context, args.allow_repository)
         if args.command == "show":
             print(summary(path, args.context, args.id, args.max_chars))
         elif args.command == "record":
@@ -46,7 +47,7 @@ def main():
         raise SystemExit(f"FEEDBACK_ERROR: {error}") from None
 
 
-def store_path(root, context):
+def store_path(root, context, allow_repository=False):
     if not isinstance(context, str) or not context.strip() or len(context) > 500:
         raise ValueError("Use a nonempty stable task context of at most 500 characters.")
     root = root.expanduser().resolve()
@@ -55,8 +56,10 @@ def store_path(root, context):
     if not path.is_relative_to(root):
         raise ValueError("Context storage must remain inside the private feedback root.")
     for parent in path.parents:
-        if (parent / ".git").exists() or (parent / "SKILL.md").is_file():
-            raise ValueError("Feedback storage must be outside repositories and skill folders.")
+        if (parent / "SKILL.md").is_file():
+            raise ValueError("Feedback storage must be outside skill folders.")
+        if (parent / ".git").exists() and not allow_repository:
+            raise ValueError("Repository storage needs the user's location choice and --allow-repository.")
     return path
 
 
